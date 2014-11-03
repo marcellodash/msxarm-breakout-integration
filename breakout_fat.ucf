@@ -1,0 +1,78 @@
+#
+# MSX fat breakout board
+# Opensource, license CC BY-NC-SA 3.0 - Creative Commons: http://creativecommons.org/licenses/by-nc-sa/3.0
+#
+
+NET "CLK"     LOC = "P27" | BUFG=CLK;      # e1 FPGA/CPLD clock 33 Mhz
+
+NET "CMD<2>"  LOC = "P1" | BUFG=OE;        # e12 Read/Write
+NET "CMD<1>"  LOC = "P59";                 # e3 
+NET "CMD<0>"  LOC = "P58";                 # e5
+
+# FPGA <-> CPLD data bus
+NET "D<7>"    LOC = "P71" | SLEW = SLOW;   # e4
+NET "D<6>"    LOC = "P22" | SLEW = SLOW;   # e7
+NET "D<5>"    LOC = "P72" | SLEW = SLOW;   # e6
+NET "D<4>"    LOC = "P64" | SLEW = SLOW;   # e9
+NET "D<3>"    LOC = "P73" | SLEW = SLOW;   # e8
+NET "D<2>"    LOC = "P65" | SLEW = SLOW;   # e11
+NET "D<1>"    LOC = "P74" | SLEW = SLOW;   # e10
+NET "D<0>"    LOC = "P66" | SLEW = SLOW;   # e13
+
+NET "ACT"     LOC = "P70" | SLEW = SLOW ;  # e2
+
+# Stereo sound input
+NET "SIGMA_IN"  LOC = "P58";               # e5 Left/Right channel. TODO: stereo
+
+# Z80 
+NET "ZMREQ"   LOC = "P40";
+NET "ZIOREQ"  LOC = "P42";
+NET "ZM1"     LOC = "P50"; 
+NET "ZRD"     LOC = "P39"; 
+NET "ZSLTSL"  LOC = "P54";
+NET "ZBUSDIR" LOC = "P43";
+
+# Z80 address bus
+NET "ZA<0>"   LOC = "P17"; 
+NET "ZA<1>"   LOC = "P24"; 
+NET "ZA<2>"   LOC = "P16"; 
+NET "ZA<3>"   LOC = "P63"; 
+NET "ZA<4>"   LOC = "P15"; 
+NET "ZA<5>"   LOC = "P20"; 
+NET "ZA<6>"   LOC = "P32"; 
+NET "ZA<7>"   LOC = "P29"; 
+NET "ZA<8>"   LOC = "P30"; 
+NET "ZA<9>"   LOC = "P36"; 
+NET "ZA<10>"  LOC = "P33"; 
+NET "ZA<11>"  LOC = "P35"; 
+NET "ZA<12>"  LOC = "P28"; 
+NET "ZA<13>"  LOC = "P18"; 
+NET "ZA<14>"  LOC = "P25"; 
+NET "ZA<15>"  LOC = "P34"; 
+
+# Z80 data bus
+NET "ZD<0>"   LOC = "P14" | SLEW = SLOW; 
+NET "ZD<1>"   LOC = "P19" | SLEW = SLOW; 
+NET "ZD<2>"   LOC = "P13" | SLEW = SLOW; 
+NET "ZD<3>"   LOC = "P7"  | SLEW = SLOW; 
+NET "ZD<4>"   LOC = "P12" | SLEW = SLOW; 
+NET "ZD<5>"   LOC = "P6"  | SLEW = SLOW; 
+NET "ZD<6>"   LOC = "P11" | SLEW = SLOW; 
+NET "ZD<7>"   LOC = "P4"  | SLEW = SLOW; 
+
+NET "ZINT"    LOC = "P46" | SLEW = SLOW;  # ZINT
+
+# RGB led
+NET "LED<2>"  LOC = "P56";  # Red
+NET "LED<1>"  LOC = "P61";  # Green
+NET "LED<0>"  LOC = "P60";  # Blue
+
+# Stereo sound output
+NET "SIGMA_OUT<1>"  LOC = "P8";  # Left channel
+NET "SIGMA_OUT<0>"  LOC = "P9";  # Right channel
+
+# Digital volume control
+NET "SNDCLK"  LOC = "P79" | SLEW = SLOW;
+
+# See http://www.xilinx.com/support/answers/5572.htm
+#NET RESET BUFG=SR;

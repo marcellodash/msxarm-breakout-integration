@@ -1,0 +1,76 @@
+#
+# MSX slim breakout board
+# Opensource, license CC BY-NC-SA 3.0 - Creative Commons: http://creativecommons.org/licenses/by-nc-sa/3.0
+#
+
+NET "CLK"     LOC = "P17" | BUFG=CLK;        # e1 FPGA/CPLD clock 33 Mhz
+
+NET "CMD<2>"  LOC = "P2" | BUFG=OE;          # e13 Read/Write
+NET "CMD<1>"  LOC = "P56";                   # e2 
+NET "CMD<0>"  LOC = "P58";                   # e4
+
+# FPGA <-> CPLD data bus
+NET "D<7>"    LOC = "P59" | SLEW = SLOW ;    # e5
+NET "D<6>"    LOC = "P60" | SLEW = SLOW ;    # e6
+NET "D<5>"    LOC = "P15" | SLEW = SLOW ;    # e7
+NET "D<4>"    LOC = "P61" | SLEW = SLOW ;    # e8
+NET "D<3>"    LOC = "P62" | SLEW = SLOW ;    # e9
+NET "D<2>"    LOC = "P63" | SLEW = SLOW ;    # e10
+NET "D<1>"    LOC = "P64" | SLEW = SLOW ;    # e11
+NET "D<0>"    LOC = "P1"  | SLEW = SLOW ;    # e12
+
+NET "ACT"     LOC = "P57" | SLEW = SLOW ; 
+
+# Stereo sound input
+NET "SIGMA_IN"  LOC = "P4";               # e14 Left/Right channel. TODO: stereo
+
+# Z80 
+NET "ZMREQ"   LOC = "P44";
+NET "ZIOREQ"  LOC = "P45";
+NET "ZM1"     LOC = "P47"; 
+NET "ZRD"     LOC = "P43"; 
+NET "ZSLTSL"  LOC = "P49";
+NET "ZBUSDIR" LOC = "P46" | SLEW = SLOW;
+NET "ZWAIT"   LOC = "P48" | SLEW = SLOW; // Open collector
+
+# Z80 address bus
+NET "ZA<0>"   LOC = "P24"; 
+NET "ZA<1>"   LOC = "P25"; 
+NET "ZA<2>"   LOC = "P23"; 
+NET "ZA<3>"   LOC = "P22"; 
+NET "ZA<4>"   LOC = "P20"; 
+NET "ZA<5>"   LOC = "P19"; 
+NET "ZA<6>"   LOC = "P34"; 
+NET "ZA<7>"   LOC = "P35"; 
+NET "ZA<8>"   LOC = "P32"; 
+NET "ZA<9>"   LOC = "P42"; 
+NET "ZA<10>"  LOC = "P36"; 
+NET "ZA<11>"  LOC = "P38"; 
+NET "ZA<12>"  LOC = "P33"; 
+NET "ZA<13>"  LOC = "P31"; 
+NET "ZA<14>"  LOC = "P27"; 
+NET "ZA<15>"  LOC = "P39";  
+
+# Z80 data bus
+NET "ZD<0>"   LOC = "P16" | SLEW = SLOW; 
+NET "ZD<1>"   LOC = "P18" | SLEW = SLOW; 
+NET "ZD<2>"   LOC = "P13" | SLEW = SLOW; 
+NET "ZD<3>"   LOC = "P12" | SLEW = SLOW; 
+NET "ZD<4>"   LOC = "P11" | SLEW = SLOW; 
+NET "ZD<5>"   LOC = "P10" | SLEW = SLOW; 
+NET "ZD<6>"   LOC = "P9"  | SLEW = SLOW; 
+NET "ZD<7>"   LOC = "P8"  | SLEW = SLOW; 
+
+NET "ZINT"    LOC = "P40"  | SLEW = SLOW;  # ZINT
+
+# RGB led
+NET "LED<2>"  LOC = "P52" | SLEW = SLOW;  # Red
+NET "LED<1>"  LOC = "P50" | SLEW = SLOW;  # Green
+NET "LED<0>"  LOC = "P51" | SLEW = SLOW;  # Blue
+
+# Stereo sound output
+NET "SIGMA_OUT<1>"  LOC = "P6" | SLEW = SLOW;  # Left channel
+NET "SIGMA_OUT<0>"  LOC = "P7" | SLEW = SLOW;  # Right channel
+
+# Digital volume control
+NET "SNDCLK"  LOC = "P5" | SLEW = SLOW | BUFG=SR; // Dual function: Master reset, Sound clock
