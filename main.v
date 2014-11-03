@@ -7,7 +7,7 @@
   
   */
 module main(
-  input           CLK,          // Clock max 33Mhz. Flat cable/PCB design limit
+  input           CLK,          // Clock max 16Mhz. Flat cable/PCB design limit
   
   output          ACT,          // Z80 (MREQ and IOREQ) -> FPGA. Z80 clock domain
   input  [2:0]    CMD,          // FPGA -> CPLD command
